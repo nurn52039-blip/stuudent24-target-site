@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, Response
+from functools import wraps
 from datetime import datetime
 import csv
 import os
@@ -8,7 +9,29 @@ app = Flask(__name__)
 
 LEADS_FILE = "leads.csv"
 
-SERVICES = [
+SERVICES = [LEADS_USERNAME = os.environ.get("LEADS_USERNAME")
+LEADS_PASSWORD = os.environ.get("LEADS_PASSWORD")
+
+def check_auth(username, password):
+    if not LEADS_USERNAME or not LEADS_PASSWORD:
+        return False
+    return username == LEADS_USERNAME and password == LEADS_PASSWORD
+
+def authenticate():
+    return Response(
+        "Login немесе пароль қате.",
+        401,
+        {"WWW-Authenticate": 'Basic realm="Leads Login"'}
+    )
+
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate()
+        return f(*args, **kwargs)
+    return decorated
     "Курстық жұмыс",
     "Дипломдық жұмыс",
     "Диссертация",
@@ -86,6 +109,7 @@ def send():
     )
 
 @app.route("/leads", methods=["GET"])
+@requires_auth
 def leads():
     ensure_csv()
     rows = []
