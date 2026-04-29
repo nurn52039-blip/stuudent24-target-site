@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Өтінім қабылданды</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page center">
+        <section class="form-box thank-you">
+            <div class="success">✅</div>
+            <h1>Өтінім қабылданды!</h1>
+            <p>{{ name }}, енді WhatsApp батырмасын басып, дайын хабарламаны жіберіңіз.</p>
+            <a class="whatsapp-btn" href="{{ whatsapp_url }}" target="_blank">WhatsApp-қа өту</a>
+            <a class="back-link" href="/">Артқа қайту</a>
+        </section>
+    </main>
+</body>
+</html>

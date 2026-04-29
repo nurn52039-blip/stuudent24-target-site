@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <title>Заявкалар</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="admin-page">
+        <h1>Келген заявкалар</h1>
+        <p>Бұл бет: <b>/leads</b>. Заявкалар <b>leads.csv</b> файлына сақталады.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Уақыты</th>
+                        <th>Аты</th>
+                        <th>Телефон</th>
+                        <th>Қызмет</th>
+                        <th>Тілі</th>
+                        <th>Күні</th>
+                        <th>Тақырыбы</th>
+                        <th>Қосымша</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                    <tr>
+                        <td>{{ row.date_time }}</td>
+                        <td>{{ row.name }}</td>
+                        <td>{{ row.phone }}</td>
+                        <td>{{ row.service }}</td>
+                        <td>{{ row.language }}</td>
+                        <td>{{ row.deadline }}</td>
+                        <td>{{ row.topic }}</td>
+                        <td>{{ row.comment }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

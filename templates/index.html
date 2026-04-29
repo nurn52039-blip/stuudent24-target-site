@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stuudent24 — Академиялық көмек</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <section class="hero">
+            <div class="badge">🔥 Қазір 10% жеңілдік жүріп жатыр</div>
+            <h1>Академиялық көмек</h1>
+            <p class="subtitle">
+                Курстық, дипломдық, диссертациялық жұмыс, практика есебі,
+                СӨЖ, презентация, антиплагиат және Word оформление бойынша көмек.
+            </p>
+
+            <div class="cards">
+                <div>✅ Талапқа сай оформление</div>
+                <div>✅ Қазақша / орысша</div>
+                <div>✅ Қорғауға дейін қолдау</div>
+            </div>
+        </section>
+
+        <section class="form-box">
+            <h2>Тапсырыс қалдыру</h2>
+            <p class="form-note">Мәліметтерді толтырыңыз, біз сізге WhatsApp арқылы жауап береміз.</p>
+
+            <form action="/send" method="POST">
+                <label>Атыңыз</label>
+                <input type="text" name="name" placeholder="Мысалы: Айдана" required>
+
+                <label>Телефон / WhatsApp</label>
+                <input type="text" name="phone" placeholder="+7..." required>
+
+                <label>Қызмет түрі</label>
+                <select name="service" required>
+                    <option value="">Таңдаңыз</option>
+                    {% for item in services %}
+                    <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+
+                <label>Жұмыс тілі</label>
+                <select name="language" required>
+                    <option value="">Таңдаңыз</option>
+                    <option value="Қазақша">Қазақша</option>
+                    <option value="Орысша">Орысша</option>
+                    <option value="Ағылшынша">Ағылшынша</option>
+                </select>
+
+                <label>Қашан керек?</label>
+                <input type="text" name="deadline" placeholder="Мысалы: 10 мамырға дейін">
+
+                <label>Тақырыбы</label>
+                <textarea name="topic" rows="3" placeholder="Жұмыстың тақырыбын жазыңыз"></textarea>
+
+                <label>Қосымша талаптар</label>
+                <textarea name="comment" rows="4" placeholder="Мұғалімнің талабы, бет саны, антиплагиат %, презентация керек пе т.б."></textarea>
+
+                <button type="submit">📩 WhatsApp арқылы жіберу</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

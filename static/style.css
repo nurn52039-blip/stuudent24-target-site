@@ -1,0 +1,196 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0b4cff, #083099);
+    color: #ffffff;
+}
+
+.page {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr 430px;
+    gap: 28px;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.hero {
+    padding: 24px;
+}
+
+.badge {
+    display: inline-block;
+    background: #ff8a00;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: 48px;
+    margin: 0 0 16px;
+    line-height: 1.05;
+}
+
+.subtitle {
+    font-size: 20px;
+    line-height: 1.5;
+    opacity: 0.95;
+}
+
+.cards {
+    display: grid;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+.cards div {
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+    padding: 16px;
+    font-weight: 700;
+}
+
+.form-box {
+    background: #ffffff;
+    color: #172033;
+    border-radius: 28px;
+    padding: 26px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.26);
+}
+
+.form-box h2 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+.form-note {
+    color: #5f6b82;
+    margin-bottom: 18px;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+label {
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid #d9e0ee;
+    border-radius: 14px;
+    padding: 13px 14px;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #0b4cff;
+}
+
+button,
+.whatsapp-btn {
+    display: inline-block;
+    border: 0;
+    background: #0b4cff;
+    color: #fff;
+    padding: 15px 18px;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+button:hover,
+.whatsapp-btn:hover {
+    opacity: 0.92;
+}
+
+.center {
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+.thank-you {
+    max-width: 520px;
+    text-align: center;
+}
+
+.success {
+    font-size: 54px;
+}
+
+.back-link {
+    display: block;
+    margin-top: 16px;
+    color: #0b4cff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.admin-page {
+    width: min(1200px, 94%);
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.table-wrap {
+    background: #fff;
+    border-radius: 18px;
+    padding: 16px;
+    overflow-x: auto;
+    color: #172033;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #e6eaf2;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #f4f7ff;
+}
+
+@media (max-width: 900px) {
+    .page {
+        grid-template-columns: 1fr;
+        padding: 24px 0;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+}
